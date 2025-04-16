@@ -10,7 +10,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from sentence_transformers import SentenceTransformer
 from docx import Document
 
-file_path = r"C:/Users/Aksha/OneDrive/Desktop/DnA & AI/Gen AI/Coustom Diet Plan based on blood report powered by GenAI/Blood Reports/sterling_accuris_pathology.pdf"
+file_path = r"C:/Users/Coustom Diet Plan based on blood report powered by GenAI/Blood Reports/sterling_accuris_pathology.pdf"
 with open(file_path, 'rb') as file:
     pdf_reader = PyPDF2.PdfReader(file)
     extracted_text = ""
@@ -39,7 +39,7 @@ def extract_text_from_multiple_pdfs(pdf_directory):
     
     return extracted_texts1
 
-pdf_directory = "C:/Users/Aksha/OneDrive/Desktop/DnA & AI/Gen AI/Coustom Diet Plan based on blood report powered by GenAI/Knowledge Base"
+pdf_directory = "C:/Users/Coustom Diet Plan based on blood report powered by GenAI/Knowledge Base"
 extracted_texts1 = extract_text_from_multiple_pdfs(pdf_directory)
 
 #  Creating Chunks
@@ -126,7 +126,7 @@ Instructions:
 
 client = OpenAI(
   base_url="https://openrouter.ai/api/v1",
-  api_key="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",
+  api_key="OpenRouter API Key",
 )
 
 completion = client.chat.completions.create(
@@ -146,7 +146,7 @@ completion = client.chat.completions.create(
 
 doc = Document()
 doc.add_paragraph(completion.choices[0].message.content)
-folder_path = "C:/Users/Aksha/OneDrive/Desktop/DnA & AI/Gen AI/Coustom Diet Plan based on blood report powered by GenAI"  
+folder_path = "C:/Users/Coustom Diet Plan based on blood report powered by GenAI"  
 os.makedirs(folder_path, exist_ok=True)
 file_path = os.path.join(folder_path, "output(gemini-flash-2).docx")
 doc.save(file_path)
