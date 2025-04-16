@@ -1,0 +1,9 @@
+PyPDF2
+PyMuPDF
+OpenAI
+langchain
+langchain_huggingface
+langchain_community
+sentencetransformer
+huggingface
+chromadb
