@@ -10,6 +10,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from sentence_transformers import SentenceTransformer
 from docx import Document
 
+#Exracting Blood report using PyPDF2
 file_path = r"C:/Users/Coustom Diet Plan based on blood report powered by GenAI/Blood Reports/sterling_accuris_pathology.pdf"
 with open(file_path, 'rb') as file:
     pdf_reader = PyPDF2.PdfReader(file)
@@ -18,6 +19,7 @@ with open(file_path, 'rb') as file:
         page = pdf_reader.pages[page_num]
         extracted_text += page.extract_text()
 
+#Extacting Knowledge base documents using PyMuPDF
 def extract_text_from_pdf(pdf_path):
     document = fitz.open(pdf_path)
     text = ""
